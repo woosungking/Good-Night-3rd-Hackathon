@@ -21,18 +21,21 @@ public class WishController {
     }
 
     @PostMapping("/create")
+    @CrossOrigin(origins = "http://localhost:5173")
     public void createWish(@RequestBody Wish wish) {
         wishDao.createWish(wish);
     }
 
     @GetMapping("/{id}")
-    public String getWish(@PathVariable("id") Long id) {
+    @CrossOrigin(origins = "http://localhost:5173")
+    public Wish getWish(@PathVariable("id") Long id) {
         Wish wish = wishDao.getWish(id);
-        return wish.getTitle();
+        return wish;
     }
 
     // 전체 Wish 리스트를 조회하는 엔드포인트
     @GetMapping("/list") // 소원리스트 쭉 뽑기
+    @CrossOrigin(origins = "http://localhost:5173")
     public List<Wish> getWishList() {
         return wishDao.getWishList();
     }
@@ -43,6 +46,7 @@ public class WishController {
     }
 
     @PatchMapping("/approval/{id}")
+    @CrossOrigin(origins = "http://localhost:5173")
     public void approvalWish(@PathVariable("id") Long id, @RequestBody ConfirmYN request)
     {
 

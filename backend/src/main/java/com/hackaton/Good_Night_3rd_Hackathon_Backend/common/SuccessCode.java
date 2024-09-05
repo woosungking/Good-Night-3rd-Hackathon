@@ -1,7 +1,9 @@
 package com.hackaton.Good_Night_3rd_Hackathon_Backend.common;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public enum SuccessCode {
     WISH_CREATE_SUCCESS(HttpStatus.CREATED,"W001","소원 등록 완료"),
     FIND_WISH(HttpStatus.OK, "W002", "소원 조회 성공"),

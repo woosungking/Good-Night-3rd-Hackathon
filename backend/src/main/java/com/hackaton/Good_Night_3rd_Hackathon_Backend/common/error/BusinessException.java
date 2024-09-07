@@ -15,7 +15,7 @@ public class BusinessException extends RuntimeException{
     public BusinessException(ErrorCode errorCode){
         super(errorCode.getMessage()); // 위에서 설명한것처럼 부모의 생성자를 호출해서 message만 초기화 해줌.
         this.status = errorCode.getStatus();
-        this.code = errorCode.getMessage();
+        this.code = errorCode.getCode();
         this.errorCode = errorCode;
     }
 }

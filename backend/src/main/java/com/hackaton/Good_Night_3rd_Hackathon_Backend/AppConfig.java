@@ -1,11 +1,11 @@
 package com.hackaton.Good_Night_3rd_Hackathon_Backend;
 
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dao.CommentDao;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dao.CommentDaoImpl;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.dao.WishDao;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.dao.WishDaoImpl;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.service.WishService;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.service.WishServiceImpl;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao.CommentDao;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao.CommentDaoImpl;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dao.WishDao;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dao.WishDaoImpl;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.service.WishService;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.service.WishServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;

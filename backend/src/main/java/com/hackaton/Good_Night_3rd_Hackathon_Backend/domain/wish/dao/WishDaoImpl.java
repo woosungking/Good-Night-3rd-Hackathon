@@ -1,11 +1,12 @@
-package com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.dao;
+package com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dao;
 
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.entity.Wish;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.entity.Wish;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.exception.WishException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,15 +29,17 @@ public class WishDaoImpl implements WishDao {
         String sql = "INSERT INTO wishes(title,content,category,registrationdate) VALUES (?,?,?,?)";
         Timestamp current = new Timestamp(new Date().getTime());
         jdbcTemplate.update(sql, wish.getTitle(),wish.getContent(),wish.getCategory(),current);
-        return;
     }
     //메서드 시그니처를 보면 인자들이 어떻게 전달되는지 이해할 수 있음.
     @Override //@PathVariable은 URL 경로에 포함된 값을 메서드 매개변수로 바인딩할 때 사용
               // @RequestParam은 URL 쿼리 파라미터를 메서드 매개변수로 바인딩할 때 사용합니다
     public Wish getWish(Long id) {
         String sql = "SELECT * FROM wishes WHERE id = ?";
-        System.out.println(id);
-        return jdbcTemplate.queryForObject(sql, new WishRowMapper(), id);
+        try {
+            return jdbcTemplate.queryForObject(sql, new WishRowMapper(), id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new WishException.NotFoundWishException();
+        }
     }
 
     @Override

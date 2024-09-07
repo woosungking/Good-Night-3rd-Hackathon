@@ -1,7 +1,6 @@
-package com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dao;
+package com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao;
 
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dto.RequestComment;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.entity.Comment;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.entity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

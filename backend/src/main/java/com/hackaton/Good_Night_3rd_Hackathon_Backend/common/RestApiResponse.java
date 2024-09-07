@@ -1,10 +1,10 @@
 package com.hackaton.Good_Night_3rd_Hackathon_Backend.common;
 
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.common.error.ErrorCode;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.exception.WishErrorCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
-
-import java.util.Objects;
 
 //enum 으로 오류코드를 정의(오류코드 및 메시지는 정해져있으므로 상수? 취급을 해서 열거형으로 고정) -> 사용자 응답을 할때
 // 상태코드, Data도 포함이 되어야하기 때문에, 열거형 + data를 일관성 있게 입력 후 사용자에게 응답을 주기위해

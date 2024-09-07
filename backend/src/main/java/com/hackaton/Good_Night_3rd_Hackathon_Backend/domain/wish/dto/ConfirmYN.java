@@ -1,4 +1,4 @@
-package com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.dto;
+package com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

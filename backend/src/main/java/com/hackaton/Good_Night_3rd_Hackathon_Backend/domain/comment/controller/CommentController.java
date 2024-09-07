@@ -1,10 +1,7 @@
-package com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.controller;
+package com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.controller;
 
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dao.CommentDao;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dao.CommentDaoImpl;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.dto.RequestComment;
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.comment.entity.Comment;
-import org.springframework.http.ResponseEntity;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao.CommentDao;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.entity.Comment;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

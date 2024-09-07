@@ -1,6 +1,6 @@
-package com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.dao;
+package com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dao;
 
-import com.hackaton.Good_Night_3rd_Hackathon_Backend.wish.entity.Wish;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.entity.Wish;
 
 import java.util.List;
 

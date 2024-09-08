@@ -1,4 +1,4 @@
-package com.hackaton.Good_Night_3rd_Hackathon_Backend.beanfind.success;
+package com.hackaton.Good_Night_3rd_Hackathon_Backend.beanfind.wish.success;
 
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.AppConfig;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.service.WishService;

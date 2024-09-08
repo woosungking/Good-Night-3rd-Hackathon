@@ -11,7 +11,7 @@ const WishGetPage: React.FC = () => {
   const getWish = async (id: number) => {
     const response = await axios.get(`http://localhost:8080/api/v1/wish/${id}`);
     console.log(response.data);
-    setWish(response.data);
+    setWish(response.data.data);
   };
   useEffect(() => {
     getWish(wishId);
@@ -21,9 +21,13 @@ const WishGetPage: React.FC = () => {
       <NavBar></NavBar>
       <div className="m-auto mt-[17vh] w-[30%] h-[50%] flex flex-col justify-center">
         {/* 조건부 렌더링으로 undefined 예외 처리 */}
-        <p className="text-[32px] font-bold">{wish?.title}</p>
-        <p className="text-[16px] ">{wish?.category}</p>
-        <p className="text-[20px] font-bold">{wish?.content}</p>
+        <p className="text-[32px] font-bold text-center mt-[1vh]">
+          {wish?.title}
+        </p>
+        <p className="text-[16px] text-center mt-[1vh]">{wish?.category}</p>
+        <p className="text-[20px] font-bold text-center mt-[1vh]">
+          {wish?.content}
+        </p>
       </div>
     </BackLayout>
   );

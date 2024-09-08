@@ -17,7 +17,9 @@ const WishTreePage: React.FC = () => {
 
   const handleShowWish = async () => {
     const response = await axios.get('http://localhost:8080/api/v1/wish/list');
-    setWishList(response.data);
+    console.log(response);
+    console.log(response.data.data);
+    setWishList(response.data.data);
   };
 
   const handleTest = () => {
@@ -71,7 +73,7 @@ const WishTreePage: React.FC = () => {
           ;
         </div>
       </NavBar>
-      <div className="w-[50%] h-[100%] m-auto flex">
+      <div className="w-[70%] h-[70%] overflow-y-scroll m-auto flex justify-center flex-wrap">
         {wishList.map((wish) =>
           wish.isConfirmed ? (
             <ShowFruit

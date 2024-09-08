@@ -51,6 +51,7 @@ public class WishController {
 
     }
     @DeleteMapping("/delete/{id}")
+    @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<RestApiResponse> deleteWish(@PathVariable("id") Long id){
         wishService.deleteWish(id);
         RestApiResponse response = new RestApiResponse(SuccessCode.DELETE_WISH);

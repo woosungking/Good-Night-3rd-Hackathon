@@ -7,6 +7,7 @@ import axios from 'axios';
 import useWishStore from '../wishstore';
 import { useNavigate } from 'react-router-dom';
 import useAuthorityStore from '../authoritystore';
+import { getAllWish } from '../service/WishService';
 
 const WishTreePage: React.FC = () => {
   const navigate = useNavigate();
@@ -16,10 +17,8 @@ const WishTreePage: React.FC = () => {
   const [state, setState] = useState<boolean>(false);
 
   const handleShowWish = async () => {
-    const response = await axios.get('http://localhost:8080/api/v1/wish/list');
-    console.log(response);
-    console.log(response.data.data);
-    setWishList(response.data.data);
+    const response = await getAllWish();
+    setWishList(response);
   };
 
   const handleTest = () => {

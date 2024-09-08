@@ -5,29 +5,15 @@ import NavBtn from '../component/NavBtn';
 import WishConfirmList from '../component/wishconfirm/WishConfirmList';
 import useWishStore from '../wishstore';
 import axios from 'axios';
+import { patchWish } from '../service/WishService';
 
 const WishConfirmPage: React.FC = () => {
   const { wishList } = useWishStore(); // wishList를 가져옵니다.
   const [state, setState] = useState<number>(0);
 
   // 소원을 승인하는 함수
-  const handleConfirm = async (wishId: number, confirm: boolean) => {
-    try {
-      const response = await axios.patch(
-        `http://localhost:8080/api/v1/wish/approval/${wishId}`, // 슬래시 수정
-        { confirm: confirm },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        },
-      );
-      console.log(`소원 ID ${wishId} ${confirm ? '승인됨' : '거절됨'}.`);
-      setState((pre) => pre + 1);
-    } catch (error) {
-      console.error('Error confirming wish:', error);
-    }
+  const handleConfirm = async (id: number, confirm: boolean) => {
+    const response = await patchWish(id, confirm);
   };
 
   useEffect(() => {

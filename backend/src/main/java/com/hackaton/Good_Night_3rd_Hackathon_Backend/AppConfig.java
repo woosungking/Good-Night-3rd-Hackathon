@@ -38,12 +38,14 @@ public class AppConfig {
     }
 
     @Bean
-    public CommentDao commentDao() {return new CommentDaoImpl(jdbcTemplate());}
-
-    @Bean
     public WishService wishService(){
         return new WishServiceImpl(wishDao());
     }
+
+    @Bean
+    public CommentDao commentDao() {return new CommentDaoImpl(jdbcTemplate());}
+
+
 
 
 }

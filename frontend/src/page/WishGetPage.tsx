@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import BackLayout from '../component/wishget/Backlayout';
 import NavBar from '../component/NavBar';
 import useWishStore from '../wishstore';
 import { GotWish } from '../interface/Wish';
 import axios from 'axios';
 import { deleteWish, getWish } from '../service/WishService';
+import CommentCreateModal from '../component/comment/CommentCreateModal';
 import CommentModal from '../component/comment/CommentModal';
+import { CreatedComment } from '../interface/Comment';
 
 const WishGetPage: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [commentValue, setCommentValue] = useState<string>('');
   const [wish, setWish] = useState<GotWish | undefined>();
   const { wishId } = useWishStore();
 
@@ -23,6 +26,18 @@ const WishGetPage: React.FC = () => {
   const handleDeleteWish = async () => {
     const response = await deleteWish(wishId);
   };
+  const handleCommentInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentValue(event.target.value);
+    console.log(commentValue);
+  };
+
+  const handleCommentCreate = async () => {
+    const requestBody: CreatedComment = {
+      content: commentValue,
+      wishId: wish,
+    };
+  };
+
   useEffect(() => {
     handleGetWish(wishId);
   }, []);
@@ -51,14 +66,23 @@ const WishGetPage: React.FC = () => {
           >
             댓글작성
           </button>
+          <button
+            className="w-[100px] h-[50px] bg-red-300 text-[16px]"
+            onClick={handleModal}
+          >
+            댓글조회
+          </button>
         </div>
       </div>
+      <CommentModal></CommentModal>
 
       {showModal ? (
-        <CommentModal
+        <CommentCreateModal
           showModal={showModal}
           onClose={handleModal}
-        ></CommentModal>
+          commentValue={commentValue}
+          onInput={handleCommentInput}
+        ></CommentCreateModal>
       ) : null}
     </BackLayout>
   );

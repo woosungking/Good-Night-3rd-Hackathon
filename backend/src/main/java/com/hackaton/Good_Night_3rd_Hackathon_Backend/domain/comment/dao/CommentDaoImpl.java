@@ -23,9 +23,9 @@ public class CommentDaoImpl implements CommentDao {
 
 
     @Override
-    public void createComment(Comment comment) {
+    public void createComment(Long wishId, Comment comment) {
         String sql = "INSERT INTO comments(content, wish_id) values(?,?)";
-        jdbcTemplate.update(sql, comment.getContent(),comment.getWish_id());
+        jdbcTemplate.update(sql, comment.getContent(),wishId);
     }
 
     @Override

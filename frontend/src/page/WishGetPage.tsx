@@ -8,6 +8,7 @@ import { deleteWish, getWish } from '../service/WishService';
 import CommentCreateModal from '../component/comment/CommentCreateModal';
 import CommentModal from '../component/comment/CommentModal';
 import { CreatedComment } from '../interface/Comment';
+import { createComment } from '../service/CommentService';
 
 const WishGetPage: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -34,8 +35,9 @@ const WishGetPage: React.FC = () => {
   const handleCommentCreate = async () => {
     const requestBody: CreatedComment = {
       content: commentValue,
-      wishId: wish,
+      wishId: wishId,
     };
+    const response = await createComment(requestBody);
   };
 
   useEffect(() => {
@@ -82,6 +84,7 @@ const WishGetPage: React.FC = () => {
           onClose={handleModal}
           commentValue={commentValue}
           onInput={handleCommentInput}
+          onSubmit={handleCommentCreate}
         ></CommentCreateModal>
       ) : null}
     </BackLayout>

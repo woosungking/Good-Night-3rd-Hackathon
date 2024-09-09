@@ -36,10 +36,10 @@ public class CommentDaoImpl implements CommentDao {
     }
 
     @Override
-    public List<Comment> getAllComment(Long wish_id) {
+    public List<Comment> getAllComment(Long wishId) {
         // as 뒤에 별칭으로 entity객체 안에 있는 변수와 이름을 동일하게 안해주면 오류가 나옴.
         String sql = "SELECT B.id as comment_id ,B.content,B.registrationDate,B.wish_id, B.is_deleted, B.deleted_at FROM wishes A, comments B WHERE A.id IN (B.wish_id) AND A.id = ?";
-        return jdbcTemplate.query(sql, new CommentRowMapper(),wish_id);
+        return jdbcTemplate.query(sql, new CommentRowMapper(),wishId);
 
     }
 

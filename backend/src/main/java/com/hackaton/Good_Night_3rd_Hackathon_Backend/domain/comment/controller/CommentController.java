@@ -33,9 +33,9 @@ public class CommentController {
         commentService.deleteComment(comment_id);
     }
 
-    @GetMapping("/{wish_id}")
+    @GetMapping("/{wishId}")
     @CrossOrigin(origins = "http://localhost:5173")
-    public List<Comment> getComment(@PathVariable("wish_id") Long wish_id){
-        return commentService.getAllComment(wish_id);
+    public List<Comment> getComment(@PathVariable("wishId") Long wishId){
+        return commentService.getAllComment(wishId);
     }
 }

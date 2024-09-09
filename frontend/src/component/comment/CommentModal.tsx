@@ -1,21 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { Children, ReactNode, useEffect } from 'react';
 
-import post from '../../assets/post2.png';
+import bg from '../../assets/treeBlock.jpeg';
+import useWishStore from '../../wishstore';
+import { getAllComment } from '../../service/CommentService';
 
 interface CommentModalProps {
   showModal: boolean;
   onClose: () => void;
-  className: String;
+  className: string;
+  children?: ReactNode;
 }
 
-const CommentModal: React.FC = ({ showModal, onClose, className }) => {
-  // const handleGetAllComment = async() =>{
-  //     const response = await
-  // };
-
+const CommentModal: React.FC = ({
+  showModal,
+  onClose,
+  className,
+  children,
+}) => {
   return (
-    <div className={`relative bg-yellow-200 w-[500px] h-[100vh] ${className}`}>
-      <img src={post} className="w-[400px] h-[450px]" />
+    <div
+      className={`absolute bg-[url('path-to-image')] w-[800px] h-[700px] ${className}`}
+      style={{
+        backgroundImage: `url(${bg})`,
+        backgroundSize: 'cover',
+      }}
+    >
+      {children}
+      <button className="absolute" onClick={onClose}>
+        닫기
+      </button>
     </div>
   );
 };

@@ -26,7 +26,8 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public List<Comment> getAllComment(Long wishId) {
-        return null;
+
+        return commentDao.getAllComment(wishId);
     }
 
     @Override

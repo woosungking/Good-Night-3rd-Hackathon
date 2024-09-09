@@ -7,23 +7,23 @@ import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dto.ConfirmYN;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.entity.Wish;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.service.WishService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/wish")
-@AllArgsConstructor
 public class WishController {
 
     private final WishDao wishDao;
     private  final WishService wishService;
 
-//    @Autowired //의존성 주입.
-//    public WishController(WishDao wishDao, WishService wishService) {
-//        this.wishDao = wishDao;
-//        this.wishService = wishService;
-//    }
+    @Autowired //의존성 주입.
+    public WishController(WishDao wishDao, WishService wishService) {
+        this.wishDao = wishDao;
+        this.wishService = wishService;
+    }
 
     @PostMapping("/create")
     @CrossOrigin(origins = "http://localhost:5173")

@@ -1,5 +1,6 @@
 package com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao;
 
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dto.RequestComment;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.entity.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -23,7 +24,7 @@ public class CommentDaoImpl implements CommentDao {
 
 
     @Override
-    public void createComment(Long wishId, Comment comment) {
+    public void createComment(Long wishId, RequestComment comment) {
         String sql = "INSERT INTO comments(content, wish_id) values(?,?)";
         jdbcTemplate.update(sql, comment.getContent(),wishId);
     }

@@ -2,6 +2,9 @@ package com.hackaton.Good_Night_3rd_Hackathon_Backend;
 
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao.CommentDao;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.dao.CommentDaoImpl;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.service.CommentService;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.comment.service.CommentServiceImpl;
+import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.controller.WishController;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dao.WishDao;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.dao.WishDaoImpl;
 import com.hackaton.Good_Night_3rd_Hackathon_Backend.domain.wish.service.WishService;
@@ -44,6 +47,11 @@ public class AppConfig {
 
     @Bean
     public CommentDao commentDao() {return new CommentDaoImpl(jdbcTemplate());}
+    @Bean
+    public CommentService commentService(){
+        return  new CommentServiceImpl(commentDao());
+    }
+
 
 
 

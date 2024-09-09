@@ -7,8 +7,9 @@ import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter@Setter
+@Getter
+@Setter
 public class RequestComment {
     private String content;
-    private  Long wish_id;
+    private  Long wishId;
 }
